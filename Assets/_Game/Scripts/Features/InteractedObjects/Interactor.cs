@@ -1,5 +1,6 @@
 ﻿using _Game.Scripts.Core.Triggers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Game.Scripts.Features.InteractedObjects
 {
@@ -7,7 +8,7 @@ namespace _Game.Scripts.Features.InteractedObjects
     {
         [SerializeField] private BaseTrigger _trigger;
         [SerializeField] private BaseAction _action;
-        [SerializeField] private bool CanInteract = false;
+        [SerializeField] private bool _canInteract;
 
         private void OnEnable()
         {
@@ -22,7 +23,7 @@ namespace _Game.Scripts.Features.InteractedObjects
 
         private void Update()
         {
-            if (!CanInteract)
+            if (!_canInteract)
                 return;
 
             if (_action.IsPerforming)
@@ -32,6 +33,6 @@ namespace _Game.Scripts.Features.InteractedObjects
                 _action.Perform();
         }
 
-        private void SwitchCanInteract() => CanInteract = !CanInteract;
+        private void SwitchCanInteract() => _canInteract = !_canInteract;
     }
 }
