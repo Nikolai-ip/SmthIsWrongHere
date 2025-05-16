@@ -12,7 +12,7 @@ namespace _Game.Scripts.Features.Player.Movement
         
         [SerializeField] private Animator _animator;
         [SerializeField] private SpriteRenderer _spriteRenderer;
-
+        
         public float Speed => _speed * Time.deltaTime;
 
         private void Update()
