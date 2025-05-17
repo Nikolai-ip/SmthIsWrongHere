@@ -41,9 +41,7 @@ namespace _Game.Scripts.Core.SpaceSystem
             if (_currentFloorRoomTransition.TryGetRoomID(args.DoorID, out int roomID))
             {
                 if (_roomContainer.TryGetRoomByID(roomID, out RoomContext roomContext))
-                {
                     _roomTransitionApplier.ApplyTransition(roomContext, args.DoorID);
-                }             
             }
             else
                 Debug.LogError($"Failed to get room ID with door ID = {args.DoorID}");

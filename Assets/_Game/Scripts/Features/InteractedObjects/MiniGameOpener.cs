@@ -10,9 +10,7 @@ namespace _Game.Scripts.Features.InteractedObjects
                 return;
             
             IsPerforming = true;
-            
             Debug.Log("Interact!");
-            
             IsPerforming = false;
         }
     }

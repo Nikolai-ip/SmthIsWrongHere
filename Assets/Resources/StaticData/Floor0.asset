@@ -17,4 +17,8 @@ MonoBehaviour:
     - _key: 0
       _value: 1
     - _key: 1
+      _value: 2
+    - _key: 3
       _value: 0
+    - _key: 2
+      _value: 1
