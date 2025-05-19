@@ -13,8 +13,9 @@ namespace _Game.Scripts.Features.MiniGames
             {
                 miniGameContextApplier.Apply(_context);
             }
-            _context.Camera.enabled = false;
-            _context.InputListener.Disable();
+
+            _context.Disable();
+            
         }
     }
 }
