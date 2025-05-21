@@ -1,38 +1,56 @@
-﻿using _Game.Scripts.Core.Triggers;
+﻿using System;
+using _Game.Scripts.Core.Triggers;
+using _Game.Scripts.Features.InteractableSystem;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _Game.Scripts.Features.InteractedObjects
 {
     public class Interactor : MonoBehaviour
     {
+        [SerializeField] private GameObject _character;
         [SerializeField] private BaseTrigger _trigger;
-        [SerializeField] private BaseAction _action;
-        [SerializeField] private bool _canInteract;
+
+        private Tuple<IInteractable, InteractionHintView> _currentInteractable;
+        private IInteractable _interactedObject;
 
         private void OnEnable()
         {
-            _trigger.OnEnter += SwitchCanInteract;
-            _trigger.OnExit += SwitchCanInteract;
+            _trigger.OnEnter += OnInteractableEnter;
+            _trigger.OnExit += OnInteractableExit;
         }
         private void OnDisable()
         {
-            _trigger.OnEnter -= SwitchCanInteract;
-            _trigger.OnExit -= SwitchCanInteract;
+            _trigger.OnEnter -= OnInteractableEnter;
+            _trigger.OnExit -= OnInteractableExit;
         }
 
         private void Update()
         {
-            if (!_canInteract)
+            if (_currentInteractable == null)
                 return;
 
-            if (_action.IsPerforming)
-                return;
-            
-            if (Input.GetKeyDown(KeyCode.E)) 
-                _action.Perform();
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                _currentInteractable.Item1.Interact(_character);
+            }
         }
 
-        private void SwitchCanInteract() => _canInteract = !_canInteract;
+        private void OnInteractableEnter(GameObject gameObject)
+        {
+            if (!gameObject.TryGetComponent(out IInteractable interactable))
+                return;
+            
+            _currentInteractable = Tuple.Create(
+                interactable,
+                gameObject.GetComponent<InteractionHintView>());
+            
+            _currentInteractable.Item2.ShowHint();
+        }
+        private void OnInteractableExit(GameObject obj)
+        {
+            _currentInteractable.Item2.HideHint();
+            
+            _currentInteractable = null;
+        }
     }
 }
