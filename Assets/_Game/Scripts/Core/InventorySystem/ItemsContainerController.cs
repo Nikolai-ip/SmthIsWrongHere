@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Game.Scripts.Core.InventorySystem
 {
     public class ItemsContainerController : MonoBehaviour
     {
-        [SerializeField] private ContainerUI _containerUI;
+        [FormerlySerializedAs("_containerUI")] [SerializeField] private SlotsContainerUI slotsContainerUI;
 
         [SerializeField] private ItemsContainer _from;
         [SerializeField] private ItemsContainer _to;
@@ -15,9 +16,9 @@ namespace _Game.Scripts.Core.InventorySystem
 
         private void RefreshUI()
         {
-            _containerUI.Refresh(_from.Items);
+            slotsContainerUI.Refresh(_from.Items);
 
-            foreach (SlotUI slotUI in _containerUI.Slots) 
+            foreach (SlotUI slotUI in slotsContainerUI.Slots) 
                 slotUI.Button.onClick.AddListener(() => ItemsTransfer.TransferItem(slotUI.CurrentItem, _from, _to));
         }
     }

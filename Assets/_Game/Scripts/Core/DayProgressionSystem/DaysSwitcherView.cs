@@ -1,18 +1,19 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 namespace _Game.Scripts.Core.DayProgressionSystem
 {
     public class DaysSwitcherView : MonoBehaviour
     {
         [SerializeField] private DaysSwitcher _daysSwitcher;
-        [SerializeField] private UIWindow _sleepWindow;
+        [SerializeField] private TextMeshProUGUI _dayNumberText;
 
-        private void Awake() => _daysSwitcher.OnDayStarted += StartSwitching;
-        private void OnDestroy() => _daysSwitcher.OnDayStarted -= StartSwitching;
-
-        private void StartSwitching()
+        private void Awake()
         {
-            _sleepWindow            
+            _daysSwitcher.OnDayStarted += Refresh;
+            Refresh();
         }
+
+        private void Refresh() => _dayNumberText.text = $"Day {_daysSwitcher.CurrentDayIndex + 1}";
     }
 }

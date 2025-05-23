@@ -2,10 +2,13 @@
 
 namespace _Game.Scripts.Core.DayProgressionSystem.DayEventInitializers
 {
-    public class DayEvent : MonoBehaviour
+    public abstract class DayEvent : MonoBehaviour
     {
         [SerializeField] private bool _isCompleted;
         
         public void Complete() => _isCompleted = true;
+        
+        public abstract void Initialize();
+        public abstract void UnInitialize();
     }
 }

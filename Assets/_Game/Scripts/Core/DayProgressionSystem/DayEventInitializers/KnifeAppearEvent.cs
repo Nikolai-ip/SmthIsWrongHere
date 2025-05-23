@@ -6,7 +6,12 @@ namespace _Game.Scripts.Core.DayProgressionSystem.DayEventInitializers
     {
         [SerializeField] private GameObject _knife;
 
-        public override void Initialize() => _knife.SetActive(true);
+        public override void Initialize()
+        {
+            _knife.SetActive(true);
+            Debug.Log($"Event KnifeAppearEvent initialized");
+        }
+
         public override void UnInitialize()
         {
             throw new System.NotImplementedException();

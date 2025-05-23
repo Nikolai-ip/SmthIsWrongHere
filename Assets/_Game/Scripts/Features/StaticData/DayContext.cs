@@ -1,7 +1,8 @@
-﻿namespace DefaultNamespace;
+﻿using System.Collections.Generic;
+using _Game.Scripts.Core.DayProgressionSystem.DayEventInitializers;
+using UnityEngine;
 
-[UnityEngine.CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
-public class DayContext : UnityEngine.ScriptableObject
+public class DayContext : MonoBehaviour
 {
-    
+    public List<DayEvent> DayEvents; 
 }

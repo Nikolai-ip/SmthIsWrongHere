@@ -27,9 +27,9 @@ namespace _Game.Scripts.Core.DayProgressionSystem
         {
             yield return StartCoroutine(ShowWindow());
             
-            yield return new WaitForSeconds(_timeBetweenDays);
+            yield return new WaitForSeconds(_timeBetweenDays * 0.3f);
             _dayNumberText.gameObject.SetActive(true);
-            yield return new WaitForSeconds(_timeBetweenDays);
+            yield return new WaitForSeconds(_timeBetweenDays * 0.7f);
             
             yield return StartCoroutine(HideWindow());
             

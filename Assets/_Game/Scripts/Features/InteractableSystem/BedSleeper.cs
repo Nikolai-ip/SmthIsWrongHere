@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace _Game.Scripts.Features.InteractableSystem
 {
-    public class BedSleeper : IInteractable
+    public class BedSleeper : MonoBehaviour, IInteractable
     {
-        private DaysSwitcher _daysSwitcher;
+        [SerializeField] private DaysSwitcher _daysSwitcher;
 
         public void Interact(GameObject @this)
         {
-            _daysSwitcher
+            _daysSwitcher.AdvanceDay();
         }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Game.Scripts.Core.InventorySystem
 {
-    public class ContainerUI : UIWindow
+    public class SlotsContainerUI : UIWindow
     {
         [SerializeField] private SlotUI _slotUIPrefab;
         [SerializeField] private Transform _parentTransform;
