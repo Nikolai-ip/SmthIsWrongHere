@@ -41,5 +41,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: EnviromentBack
+    uniqueID: 1197144167
+    locked: 0
+  - name: Gameplay
+    uniqueID: 175787435
+    locked: 0
+  - name: EnviromentFront
+    uniqueID: 3098208291
+    locked: 0
+  - name: UI
+    uniqueID: 2876249645
+    locked: 0
   m_RenderingLayers:
   - Default

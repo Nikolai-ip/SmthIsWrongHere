@@ -48,6 +48,8 @@ namespace _Game.Scripts.Features.InteractedObjects
         }
         private void OnInteractableExit(GameObject obj)
         {
+            if (_currentInteractable == null) 
+                return;
             _currentInteractable.Item2.HideHint();
             
             _currentInteractable = null;
