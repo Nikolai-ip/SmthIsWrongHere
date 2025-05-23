@@ -12,6 +12,7 @@ namespace _Game.Scripts.Features.MiniGames.RepairTV
         [SerializeField] private Transform _weightTr;
         [SerializeField] private PointFollower _weightTrFollower;
         [SerializeField] private CircleAreaPosClamper _weightPointPosClamper;
+        public Vector2 WeightPointPos => _weightTr.position;
         public event Action<Vector2> OnWeightPointPosChanged;
         private void OnEnable()
         {

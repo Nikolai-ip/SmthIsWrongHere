@@ -15,12 +15,15 @@ namespace _Game.Scripts.Features.MiniGames.RepairTV
         [SerializeField, ReadOnly] private float _antennasDegreeCorrectness;
         [SerializeField, ReadOnly] private float _rightAntennaDegreeCorrectness;
         [SerializeField, ReadOnly] private float _leftAntennaDegreeCorrectness;
+        public float AntennasDegreeCorrectness => _antennasDegreeCorrectness;
         public event Action<float> AntennaDegreeCorrectnessChanged;
         public event Action<bool> OnAllAntennasAreCorrectChanged;
         private void OnEnable()
         {
             _leftAntenna.OnWeightPointPosChanged += CheckLeftAntenna;
             _rightAntenna.OnWeightPointPosChanged += CheckRightAntenna;
+            CheckRightAntenna(_leftAntenna.WeightPointPos);
+            CheckLeftAntenna(_rightAntenna.WeightPointPos);
         }
 
         private void OnDisable()
@@ -28,26 +31,17 @@ namespace _Game.Scripts.Features.MiniGames.RepairTV
             _leftAntenna.OnWeightPointPosChanged -= CheckLeftAntenna;
             _rightAntenna.OnWeightPointPosChanged -= CheckRightAntenna;
         }
-
         private void CheckRightAntenna(Vector2 weightPoint)
         {
-            if (AntennaCurveIsValid(weightPoint, _targetRightWeightPoint, out _rightAntennaDegreeCorrectness))
-            {
-                
-            }
+            AntennaCurveIsValid(weightPoint, _targetRightWeightPoint, out _rightAntennaDegreeCorrectness);
             SetDegreeCorrectnessValue();
-            
         }
         private void CheckLeftAntenna(Vector2 weightPoint)
         {
-            if (AntennaCurveIsValid(weightPoint, _targetLeftWeightPoint, out _leftAntennaDegreeCorrectness))
-            {
-                
-            }
+            AntennaCurveIsValid(weightPoint, _targetLeftWeightPoint, out _leftAntennaDegreeCorrectness);
             SetDegreeCorrectnessValue();
             
         }
-
         private void SetDegreeCorrectnessValue()
         {
             _antennasDegreeCorrectness = (_rightAntennaDegreeCorrectness+_leftAntennaDegreeCorrectness)/2;

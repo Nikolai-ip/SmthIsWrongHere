@@ -19,7 +19,7 @@ namespace _Game.Scripts.Features.Player.Movement
 
             Vector3 move = (transform.right * x + transform.forward * z) * Speed;
             
-            _rb.linearVelocity = new Vector3(move.x, 0, move.z);
+            _rb.linearVelocity = new Vector3(move.x, _rb.linearVelocity.y, move.z);
             
             _animator.SetBool("Walking", !Mathf.Approximately(x, 0f) || !Mathf.Approximately(z, 0f));
             

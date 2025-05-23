@@ -8,21 +8,16 @@ namespace _Game.Scripts.Features.MiniGames.RepairTV.UI
     {
         [SerializeField] private List<GameObject> _successPhaseObjects;
         [SerializeField] TargetWeightPointPositionsChecker _targetWeightPointPositionsChecker;
-        [SerializeField] private GameObject _victoryButtonObj;
         private void OnEnable()
         {
             _targetWeightPointPositionsChecker.AntennaDegreeCorrectnessChanged += UpdateView;
-            _targetWeightPointPositionsChecker.OnAllAntennasAreCorrectChanged += UpdateButtonView;
             UpdateView(0);
-            UpdateButtonView(false);
         }
 
-        private void UpdateButtonView(bool isActive) => _victoryButtonObj.SetActive(isActive);
 
         private void OnDisable()
         {
             _targetWeightPointPositionsChecker.AntennaDegreeCorrectnessChanged -= UpdateView;
-            _targetWeightPointPositionsChecker.OnAllAntennasAreCorrectChanged -= UpdateButtonView;
         }
 
         private void UpdateView(float successProgress)

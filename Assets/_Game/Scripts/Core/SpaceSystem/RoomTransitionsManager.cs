@@ -31,7 +31,7 @@ namespace _Game.Scripts.Core.SpaceSystem
         }
         private void OnRoomTransition(RoomTransitionSignal signal) => DoTransition(signal.Args);
 
-        private void DoTransition(RoomTransitionArgs args)
+        public void DoTransition(RoomTransitionArgs args)
         {
             if (_currentFloorRoomTransition == null)
             {

@@ -13,8 +13,6 @@ namespace _Game.Scripts.Features.MiniGames
         public InputListener InputListener => _inputListener;
         protected virtual void OnEnable() => _inputListener.OnGameCloseButton += OnMiniGameClosed;
         protected virtual void OnDisable() => _inputListener.OnGameCloseButton -= OnMiniGameClosed;
-
-
         public virtual void OnFailed()
         {
             ResetGame();
@@ -22,12 +20,12 @@ namespace _Game.Scripts.Features.MiniGames
         public void OnMiniGameClosed()
         {
             OnMiniGameExitResult?.Invoke(MiniGameResultType.Closed);
-            InputListener.Disable();
+            Disable();
         }
         public virtual void OnSuccess()
         {
             OnMiniGameExitResult?.Invoke(MiniGameResultType.Success);
-            InputListener.Disable();
+            Disable();
         }
 
         public virtual void StartGame()
