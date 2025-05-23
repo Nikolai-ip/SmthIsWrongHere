@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 8b526d66d78506945bd3a5f346a8ef7a
+=======
+guid: 7184a169a89132a418b121f6b67bdfc6
+>>>>>>> Feature/DayProgressionSystem
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

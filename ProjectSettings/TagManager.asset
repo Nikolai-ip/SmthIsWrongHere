@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Character
   - 
   - 
   - 
@@ -40,18 +40,6 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: EnviromentBack
-    uniqueID: 346260897
-    locked: 0
-  - name: Gameplay
-    uniqueID: 3414379489
-    locked: 0
-  - name: EnvitomentFront
-    uniqueID: 3603714561
-    locked: 0
-  - name: UI
-    uniqueID: 1919882033
     locked: 0
   m_RenderingLayers:
   - Default

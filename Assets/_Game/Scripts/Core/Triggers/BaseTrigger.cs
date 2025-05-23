@@ -1,14 +1,15 @@
 using System;
-using _Game.Scripts.Common.Utilities;
 using UnityEngine;
 
 namespace _Game.Scripts.Core.Triggers
 {
     public class BaseTrigger : MonoBehaviour
     {
-        public event Action OnEnter;
-        public event Action OnExit;
-        protected void RaiseTriggerEnter() => OnEnter?.Invoke();
-        protected void RaiseTriggerExit() => OnExit?.Invoke();
+        public event Action<GameObject> OnEnter;
+        public event Action<GameObject> OnStay;
+        public event Action<GameObject> OnExit;
+        protected void RaiseTriggerEnter(GameObject gameObject) => OnEnter?.Invoke(gameObject);
+        protected void RaiseTriggerStay(GameObject gameObject) => OnStay?.Invoke(gameObject);
+        protected void RaiseTriggerExit(GameObject gameObject) => OnExit?.Invoke(gameObject);
     }
 }
