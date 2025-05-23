@@ -8,6 +8,8 @@ namespace _Game.Scripts.Features.InteractedObjects
     public class DoorInteracted:BaseAction
     {
         [SerializeField] private DoorContext _doorContext;
+        public override bool CanPerform { get; }
+
         public override void Perform()
         {
             if (IsPerforming)
@@ -15,6 +17,11 @@ namespace _Game.Scripts.Features.InteractedObjects
             IsPerforming = true;
             EventBus.Invoke(new RoomTransitionSignal(new RoomTransitionArgs(_doorContext.DoorID)));
             IsPerforming = false;
+        }
+
+        public override void UnPerform()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
