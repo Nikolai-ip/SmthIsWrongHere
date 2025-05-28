@@ -14,11 +14,91 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _roomTransitions:
     _dictionary:
-    - _key: 0
-      _value: 1
-    - _key: 1
+    - _key:
+        _doorID: 1
+        _roomID: 1
       _value: 2
-    - _key: 3
-      _value: 0
-    - _key: 2
+    - _key:
+        _doorID: 1
+        _roomID: 2
       _value: 1
+    - _key:
+        _doorID: 2
+        _roomID: 3
+      _value: 2
+    - _key:
+        _doorID: 3
+        _roomID: 4
+      _value: 2
+    - _key:
+        _doorID: 4
+        _roomID: 5
+      _value: 2
+    - _key:
+        _doorID: 2
+        _roomID: 2
+      _value: 3
+    - _key:
+        _doorID: 3
+        _roomID: 2
+      _value: 4
+    - _key:
+        _doorID: 4
+        _roomID: 2
+      _value: 5
+    - _key:
+        _doorID: 5
+        _roomID: 2
+      _value: 6
+    - _key:
+        _doorID: 5
+        _roomID: 6
+      _value: 2
+    - _key:
+        _doorID: 11
+        _roomID: 6
+      _value: 7
+    - _key:
+        _doorID: 11
+        _roomID: 7
+      _value: 6
+    - _key:
+        _doorID: 9
+        _roomID: 7
+      _value: 8
+    - _key:
+        _doorID: 9
+        _roomID: 8
+      _value: 7
+    - _key:
+        _doorID: 10
+        _roomID: 6
+      _value: 9
+    - _key:
+        _doorID: 10
+        _roomID: 9
+      _value: 6
+    - _key:
+        _doorID: 6
+        _roomID: 6
+      _value: 10
+    - _key:
+        _doorID: 6
+        _roomID: 10
+      _value: 6
+    - _key:
+        _doorID: 7
+        _roomID: 6
+      _value: 11
+    - _key:
+        _doorID: 7
+        _roomID: 11
+      _value: 6
+    - _key:
+        _doorID: 8
+        _roomID: 6
+      _value: 12
+    - _key:
+        _doorID: 8
+        _roomID: 12
+      _value: 6

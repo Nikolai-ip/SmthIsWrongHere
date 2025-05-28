@@ -9,10 +9,11 @@ namespace _Game.Scripts.Features.InteractedObjects
     public class DoorInteracted:MonoBehaviour, IInteractable
     {
         [SerializeField] private DoorContext _doorContext;
+        [SerializeField] private RoomContext _roomContext;
 
         public void Interact(GameObject @this)
         {
-            EventBus.Invoke(new RoomTransitionSignal(new RoomTransitionArgs(_doorContext.DoorID)));
+            EventBus.Invoke(new RoomTransitionSignal(new RoomTransitionArgs(_doorContext.DoorID, _roomContext.ID)));
         }
     }
 }

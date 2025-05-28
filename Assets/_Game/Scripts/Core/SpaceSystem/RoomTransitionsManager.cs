@@ -38,13 +38,13 @@ namespace _Game.Scripts.Core.SpaceSystem
                 Debug.LogError("CurrentFloorRoomTransition is null, did you forget to invoke SetFloor?");
                 return;
             }
-            if (_currentFloorRoomTransition.TryGetRoomID(args.DoorID, out int roomID))
+            if (_currentFloorRoomTransition.TryGetRoomID(args.CurrentRoomID, args.DoorID,  out int roomID))
             {
                 if (_roomContainer.TryGetRoomByID(roomID, out RoomContext roomContext))
                     _roomTransitionApplier.ApplyTransition(roomContext, args.DoorID);
             }
             else
-                Debug.LogError($"Failed to get room ID with door ID = {args.DoorID}");
+                Debug.LogError($"Failed to get room ID with currentRoom ID = {args.CurrentRoomID} and door ID = {args.DoorID}");
             
         }
 
