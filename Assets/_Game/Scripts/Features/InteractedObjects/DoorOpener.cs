@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace _Game.Scripts.Features.InteractedObjects
 {
-    public class DoorInteracted:MonoBehaviour, IInteractable
+    public class DoorInteracted:MonoBehaviour, IInteractable, IInteractNotifier
     {
         [SerializeField] private DoorContext _doorContext;
         [SerializeField] private RoomContext _roomContext;
