@@ -1,6 +1,7 @@
 ﻿using System;
 using _Game.Scripts.Core.Triggers;
 using _Game.Scripts.Features.InteractableSystem;
+using Tools.DevTools;
 using UnityEngine;
 
 namespace _Game.Scripts.Features.InteractedObjects
@@ -11,8 +12,8 @@ namespace _Game.Scripts.Features.InteractedObjects
         [SerializeField] private BaseTrigger _trigger;
 
         private Tuple<IInteractable, InteractionHintView> _currentInteractable;
-        private IInteractable _interactedObject;
-
+        [TextArea]
+        [SerializeField, ReadOnly] private string _currentInteractableName;
         private void OnEnable()
         {
             _trigger.OnEnter += OnInteractableEnter;
@@ -43,7 +44,7 @@ namespace _Game.Scripts.Features.InteractedObjects
             _currentInteractable = Tuple.Create(
                 interactable,
                 gameObject.GetComponent<InteractionHintView>());
-            
+            _currentInteractableName = interactable.GetType().Name;
             _currentInteractable.Item2.ShowHint();
         }
         private void OnInteractableExit(GameObject obj)
@@ -51,7 +52,7 @@ namespace _Game.Scripts.Features.InteractedObjects
             if (_currentInteractable == null) 
                 return;
             _currentInteractable.Item2.HideHint();
-            
+            _currentInteractableName = "";
             _currentInteractable = null;
         }
     }
