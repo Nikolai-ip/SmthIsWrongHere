@@ -16,8 +16,6 @@ namespace _Game.Scripts.Features.InteractedObjects
         {
             _miniGamesService = miniGamesService;
         }
-        
-
         public void Interact(GameObject @this)
         {
             _miniGamesService.StartMiniGame(_miniGameType);
