@@ -14,9 +14,8 @@ namespace _Game.Scripts.Core.Installers.SceneInstallers.Gameplay
         public override void InstallBindings()
         {
             var miniGames = ObjectsFinder
-                .FindObjects<MiniGameContext>()
-                .ToDictionary(key=> key.Type, value => value);
-            var miniGameManager = new MiniGamesService(miniGames, _mainCamera);
+                .FindObjects<MiniGameContext>();
+            var miniGameManager = new MiniGamesService(miniGames.ToDictionary(key=> key.Type, value => value), _mainCamera);
             
             Container
                 .Bind<MiniGamesService>()
