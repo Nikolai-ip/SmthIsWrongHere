@@ -22,6 +22,7 @@ namespace _Game.Scripts.Features.MiniGames.Common
         {
             _pointerListener.onPointerDown -= StartDrag;
             _pointerListener.onPointerUp -= StopDrag;
+            StopDrag(new PointerEventData(EventSystem.current));
         }
 
         private void StartDrag(PointerEventData eventData)
@@ -30,7 +31,7 @@ namespace _Game.Scripts.Features.MiniGames.Common
             _offset = (Vector2)_target.position - _inputListener.MousePos;
         }
 
-        private void StopDrag(PointerEventData obj)
+        private void StopDrag(PointerEventData eventData)
         {
             _isFollowing = false;
             _offset = Vector2.zero;

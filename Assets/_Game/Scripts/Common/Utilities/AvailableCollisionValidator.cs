@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _Game.Scripts.Common.Utilities
 {
-    public class CollisionValidator
+    public class AvailableCollisionValidator
     {
         public bool IsValid(GameObject other, LayerMask validLayerMasks)
         {

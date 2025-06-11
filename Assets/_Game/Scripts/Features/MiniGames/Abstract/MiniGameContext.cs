@@ -8,6 +8,7 @@ namespace _Game.Scripts.Features.MiniGames
         [SerializeField] private Camera _camera;
         [SerializeField] private InputListener _inputListener;
         public event Action<MiniGameResultType> OnMiniGameExitResult;
+        public event Action OnReset;
         public abstract MiniGameType Type { get; }
         public Camera Camera => _camera;
         public InputListener InputListener => _inputListener;
@@ -30,11 +31,17 @@ namespace _Game.Scripts.Features.MiniGames
 
         public virtual void StartGame()
         {
+            Debug.Log("Starting game");
             gameObject.SetActive(true);
             InputListener.Enable();
+            ResetGame();
         }
 
-        public abstract void ResetGame();
+        public virtual void ResetGame()
+        {
+            Debug.Log("Resetting game");
+            OnReset?.Invoke();
+        }
 
         public void Disable()
         {
