@@ -8,7 +8,7 @@ namespace _Game.Scripts.Features.MiniGames.Common
         [SerializeField] private Transform _movable;
         [SerializeField] private InputListener _inputListener;
         [SerializeField] private Vector2 _movement;
-
+        public event Action<Vector2> OnMove;
         private void OnEnable()
         {
             _inputListener.OnMouseScroll += Move;
@@ -17,6 +17,10 @@ namespace _Game.Scripts.Features.MiniGames.Common
         {
             _inputListener.OnMouseScroll -= Move;
         }
-        private void Move(float scrollValue) => _movable.Translate(_movement * scrollValue);
+        private void Move(float scrollValue)
+        {
+            _movable.Translate(_movement * scrollValue);
+            OnMove?.Invoke(_movement);
+        }
     }
 }

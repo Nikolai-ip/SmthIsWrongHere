@@ -7,7 +7,8 @@ namespace _Game.Scripts.Features.MiniGames.Common
     public class OnMiniGameResultHandler:MonoBehaviour, IMiniGameContextApplier
     {
         [SerializeField] private MiniGameResultNotifier _miniGameResultNotifier;
-        [SerializeField] private float _handleDelay;
+        [SerializeField] private float _onSuccessHandleDelay;
+        [SerializeField] private float _onFailureHandleDelay;
         private MiniGameContext _miniGameContext;
 
         private void OnEnable()
@@ -27,11 +28,16 @@ namespace _Game.Scripts.Features.MiniGames.Common
 
         private IEnumerator Handle(bool success)
         {
-            yield return new WaitForSeconds(_handleDelay);
             if (success)
+            {
+                yield return new WaitForSeconds(_onSuccessHandleDelay);
                 _miniGameContext.OnSuccess();
+            }
             else
+            {
+                yield return new WaitForSeconds(_onFailureHandleDelay);
                 _miniGameContext.OnFailed();
+            }
         }
 
         public void Apply(MiniGameContext context)
