@@ -2,8 +2,8 @@
 
 namespace _Game.Scripts.Features.InteractableSystem
 {
-    public class UIWindowOpenerByInteract : UIWindowOpener, IInteractable
+    public class UIWindowOpenerByInteract : UIWindowOpener
     {
-        public void Interact(GameObject @this) => Open();
+        public override void Interact(GameObject @this) => Open();
     }
 }

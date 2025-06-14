@@ -1,11 +1,12 @@
 ﻿using _Game.Scripts.Core.InventorySystem;
+using _Game.Scripts.Features.InteractedObjects;
 using UnityEngine;
 
 namespace _Game.Scripts.Features.InteractableSystem
 {
-    public class UIWindowOpener : MonoBehaviour
+    public class UIWindowOpener : InteractedMono
     {
         [SerializeField] private UIWindow _uiWindow;
-        public void Open() => _uiWindow.Show();
+        protected void Open() => _uiWindow.Show();
     }
 }

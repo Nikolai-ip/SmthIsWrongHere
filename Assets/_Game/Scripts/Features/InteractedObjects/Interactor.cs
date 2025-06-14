@@ -11,9 +11,10 @@ namespace _Game.Scripts.Features.InteractedObjects
         [SerializeField] private GameObject _character;
         [SerializeField] private BaseTrigger _trigger;
 
-        private Tuple<IInteractable, InteractionHintView> _currentInteractable;
+        private InteractedMono _interactable;
+        
         [TextArea]
-        [SerializeField, ReadOnly] private string _currentInteractableName;
+        [SerializeField, ReadOnly] private string _debugInteractableName;
         private void OnEnable()
         {
             _trigger.OnEnter += OnInteractableEnter;
@@ -27,33 +28,32 @@ namespace _Game.Scripts.Features.InteractedObjects
 
         private void Update()
         {
-            if (_currentInteractable == null)
+            if (_interactable == null)
                 return;
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                _currentInteractable.Item1.Interact(_character);
+                _interactable.Interact(_character);
             }
         }
 
-        private void OnInteractableEnter(GameObject gameObject)
+        private void OnInteractableEnter(GameObject gameObj)
         {
-            if (!gameObject.TryGetComponent(out IInteractable interactable))
-                return;
+            if (!gameObj.TryGetComponent(out InteractedMono interactable)) return;
+            if (_interactable == interactable) return;
             
-            _currentInteractable = Tuple.Create(
-                interactable,
-                gameObject.GetComponent<InteractionHintView>());
-            _currentInteractableName = interactable.GetType().Name;
-            _currentInteractable.Item2.ShowHint();
+            _interactable?.Deselect();
+            _debugInteractableName = "Changed " + interactable.GetType().Name;
+            _interactable = interactable;
+            _interactable.Select();
         }
-        private void OnInteractableExit(GameObject obj)
+        private void OnInteractableExit(GameObject gameObj)
         {
-            if (_currentInteractable == null) 
+            if (_interactable == null) 
                 return;
-            _currentInteractable.Item2.HideHint();
-            _currentInteractableName = "";
-            _currentInteractable = null;
+            _interactable.Deselect();
+            _debugInteractableName = "Out of interact range";
+            _interactable = null;
         }
     }
 }

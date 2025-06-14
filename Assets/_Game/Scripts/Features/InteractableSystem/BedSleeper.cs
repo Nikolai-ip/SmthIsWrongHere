@@ -1,14 +1,16 @@
 ﻿using _Game.Scripts.Core.DayProgressionSystem;
+using _Game.Scripts.Features.InteractedObjects;
 using UnityEngine;
 
 namespace _Game.Scripts.Features.InteractableSystem
 {
-    public class BedSleeper : MonoBehaviour, IInteractable
+    public class BedSleeper : InteractedMono
     {
         [SerializeField] private DaysSwitcher _daysSwitcher;
 
-        public void Interact(GameObject @this)
+        public override void Interact(GameObject @this)
         {
+            base.Interact(@this);
             _daysSwitcher.AdvanceDay();
         }
     }

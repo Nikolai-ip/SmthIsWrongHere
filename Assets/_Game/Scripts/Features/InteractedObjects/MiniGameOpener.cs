@@ -6,7 +6,7 @@ using Zenject;
 
 namespace _Game.Scripts.Features.InteractedObjects
 {
-    public class MiniGameOpener : MonoBehaviour, IInteractable
+    public class MiniGameOpener : InteractedMono
     {
         private MiniGamesService _miniGamesService;
         [SerializeField] private MiniGameType _miniGameType;
@@ -16,8 +16,9 @@ namespace _Game.Scripts.Features.InteractedObjects
         {
             _miniGamesService = miniGamesService;
         }
-        public void Interact(GameObject @this)
+        public override void Interact(GameObject @this)
         {
+            base.Interact(@this);
             _miniGamesService.StartMiniGame(_miniGameType);
         }
     }

@@ -181,6 +181,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6069001328101573988, guid: eae5341e7bcf699408b3d6cb8a5bdb06, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8452880759500210899}
+    - targetCorrespondingSourceObject: {fileID: 6069001328101573988, guid: eae5341e7bcf699408b3d6cb8a5bdb06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9157783096841492243}
   m_SourcePrefab: {fileID: 100100000, guid: eae5341e7bcf699408b3d6cb8a5bdb06, type: 3}
 --- !u!4 &7001414812386893271 stripped
 Transform:
@@ -205,6 +208,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiWindow: {fileID: 7299456893090417974}
+--- !u!114 &9157783096841492243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8501223963237003485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1691104b2a646039ed9b1e65a2d860f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionHintView: {fileID: 8835006983290993184}
+--- !u!114 &8835006983290993184 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6584058833805397913, guid: eae5341e7bcf699408b3d6cb8a5bdb06, type: 3}
+  m_PrefabInstance: {fileID: 2432795554046670265}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8501223963237003485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076f6356bc604e1dacdb53aa7973f766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7839439423445247765
 PrefabInstance:
   m_ObjectHideFlags: 0
