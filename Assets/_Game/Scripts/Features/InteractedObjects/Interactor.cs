@@ -42,16 +42,16 @@ namespace _Game.Scripts.Features.InteractedObjects
             if (!gameObj.TryGetComponent(out InteractedMono interactable)) return;
             if (_interactable == interactable) return;
             
-            _interactable?.Deselect();
+            _interactable?.UnFocused();
             _debugInteractableName = "Changed " + interactable.GetType().Name;
             _interactable = interactable;
-            _interactable.Select();
+            _interactable.Focused();
         }
         private void OnInteractableExit(GameObject gameObj)
         {
             if (_interactable == null) 
                 return;
-            _interactable.Deselect();
+            _interactable.UnFocused();
             _debugInteractableName = "Out of interact range";
             _interactable = null;
         }

@@ -6,15 +6,14 @@ namespace _Game.Scripts.Features.InteractedObjects.UI
     public class InteractionHintController: MonoBehaviour
     {
         [SerializeField] private InteractionHintView _interactionHintView;
-        private ISelectNotifier _notifier;
-
+        private IFocusableNotifier _focusNotifier;
         private void OnEnable()
         {
-            _notifier ??= GetComponent<ISelectNotifier>();
-            _notifier.OnSelect += ToggleView;
+            _focusNotifier ??= GetComponent<IFocusableNotifier>();
+            _focusNotifier.OnFocused += ToggleView;
         }
 
-        private void OnDisable() => _notifier.OnSelect -= ToggleView;
+        private void OnDisable() => _focusNotifier.OnFocused -= ToggleView;
 
         private void ToggleView(bool onSelect)
         {

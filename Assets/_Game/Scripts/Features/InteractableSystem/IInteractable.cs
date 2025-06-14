@@ -7,18 +7,18 @@ namespace _Game.Scripts.Features.InteractableSystem
     {
         void Interact(GameObject @this);
     }
-    public interface ISelectable
+    public interface IFocusable
     {
-        void Select();
-        void Deselect();
+        void Focused();
+        void UnFocused();
     }
     public interface IInteractNotifier
     {
         event Action OnInteract;
     }
 
-    public interface ISelectNotifier
+    public interface IFocusableNotifier
     {
-        event Action<bool> OnSelect;
+        event Action<bool> OnFocused;
     }
 }
